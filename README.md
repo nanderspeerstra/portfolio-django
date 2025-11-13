@@ -111,11 +111,43 @@ ALLOWED_HOSTS=localhost,127.0.0.1
 
 ## Deployment
 
+### CI/CD
+
 Automated via GitHub Actions:
 
 - CI: Pre-commit and Django tests on PRs
 - CD: Docker image pushed on release
 - Release PRs managed with Release Please
+
+### Deployment with MicroK8s
+
+To deploy the application to your MicroK8s cluster, use the provided `deploy.sh` script. This script applies all necessary Kubernetes manifests, including:
+
+- Namespace
+- PersistentVolumeClaim for media storage
+- Deployment (using the `latest` Docker image tag)
+- Service
+- Ingress
+
+#### Prerequisites
+
+- MicroK8s is installed and running
+- You’ve built and pushed your Docker image to DockerHub with the `latest` tag
+- Your Kubernetes manifests are located in the project root:
+  - `namespace.yaml`
+  - `media-pvc.yaml`
+  - `deployment.yaml`
+  - `service.yaml`
+  - `ingress.yaml`
+
+#### Usage
+
+Make the script executable and run it:
+
+```bash
+chmod +x deploy.sh
+./deploy.sh
+
 
 ---
 

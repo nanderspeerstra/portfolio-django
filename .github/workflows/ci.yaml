@@ -55,5 +55,5 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          push: true
+          push: false
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/portfolio-django:latest

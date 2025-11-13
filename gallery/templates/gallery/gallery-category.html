@@ -1,0 +1,35 @@
+{% extends "gallery/base.html" %}
+{% load static %}
+
+{% block title %}{{ category.name }} — Gallery{% endblock title %}
+
+{% block content %}
+<section class="section py-5">
+  <div class="container" data-aos="fade-up">
+    <h2 class="mb-4 text-center">{{ category.name }}</h2>
+    <p class="lead text-center mb-5">Explore the photos in this category.</p>
+
+    <div class="row g-4">
+      {% for photo in photos %}
+        <div class="col-md-4 col-sm-6">
+          <a href="{{ photo.image.url }}" target="_blank" class="text-decoration-none">
+            <div class="card border-0">
+              <a href="{{ photo.image.url }}" class="glightbox" data-gallery="gallery1">
+                <img src="{{ photo.image.url }}" class="img-fluid rounded shadow-sm mb-2" alt="{{ photo.title }}" width="400" height="300">
+              </a>
+              <div class="text-center px-2">
+                <h6 class="fw-bold mb-1 text-dark">{{ photo.title }}</h6>
+                {% if photo.description %}
+                  <p class="text-muted small mb-0">{{ photo.description }}</p>
+                {% endif %}
+              </div>
+            </div>
+
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+{% endblock content %}

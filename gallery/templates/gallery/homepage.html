@@ -1,0 +1,34 @@
+{% extends "gallery/base.html" %}
+{% load static %}
+
+{% block title %}Home — Nander Speerstra{% endblock title %}
+
+{% block content %}
+
+<section id="hero" class="hero section">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-4 align-items-center">
+        <div class="col-lg-6 order-2 order-lg-1">
+        <div class="hero-content">
+            <h1 data-aos="fade-up" data-aos-delay="200">Hi, I'm <span class="highlight">Nander Speerstra</span></h1>
+            <h2 data-aos="fade-up" data-aos-delay="300">MLOps Engineer, Developer, Photographer</h2>
+            <p data-aos="fade-up" data-aos-delay="400">
+                I build scalable ML pipelines, explore creative software ideas, and capture the world through my lens.
+            </p>
+            <div class="hero-actions" data-aos="fade-up" data-aos-delay="500">
+                <a href="{% url 'gallery_home' %}" class="btn btn-primary">View My Photos</a>
+                <a href="#" class="btn btn-outline">Get In Touch</a>
+            </div>
+        </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2">
+        <div class="hero-image" data-aos="zoom-in" data-aos-delay="300">
+            <div class="image-wrapper">
+                <img src="{% static 'img/photo/nander_frontal.webp' %}" alt="Nander Speerstra" width="400" height="500" class="img-fluid">
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</section>
+{% endblock content %}

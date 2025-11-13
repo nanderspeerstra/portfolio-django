@@ -1,0 +1,26 @@
+{% load static %}
+<header id="header" class="header d-flex align-items-center light-background sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{% url 'homepage' %}" class="active">Home</a></li>
+          <li><a href="{% url 'personal' %}">Personal</a></li>
+          <li><a href="{% url 'professional' %}">Professional</a></li>
+          <li><a href="{% url 'gallery_home' %}">Photo Gallery</a></li>
+          <li><a href="#">Hobbies</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+      <div class="header-social-links d-flex align-items-center gap-3">
+        <a href="https://nl.linkedin.com/in/nanderspeerstra" target="_blank">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" alt="LinkedIn" width="28" height="28" class="icon-invert">
+        </a>
+        <a href="https://github.com/nanderspeerstra" target="_blank">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" alt="GitHub" width="28" height="28" class="icon-invert">
+        </a>
+        <a href="https://stackoverflow.com/users/5488275/nander-speerstra" target="_blank">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/stackoverflow.svg" alt="Stack Overflow" width="28" height="28" class="icon-invert">
+        </a>
+      </div>
+    </div>
+  </header>

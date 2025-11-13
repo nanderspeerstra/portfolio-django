@@ -1,0 +1,29 @@
+{% extends "gallery/base.html" %}
+{% load static %}
+
+{% block title %}Gallery — Nander Speerstra{% endblock title %}
+
+{% block content %}
+<section class="section py-5">
+  <div class="container" data-aos="fade-up">
+    <h2 class="mb-4 text-center">Photography</h2>
+    <p class="lead text-center mb-5">Discover my photos per category — from nature to architecture.</p>
+
+    <div class="row g-4 justify-content-center">
+      {% for category in categories %}
+        <div class="col-md-4 col-sm-6">
+          <a href="{% url 'gallery_category' category.id %}" class="text-decoration-none">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body text-center">
+                <i class="bi bi-images display-4 text-primary mb-3"></i>
+                <h5 class="card-title">{{ category.name }}</h5>
+                <p class="card-text text-muted">Check my images.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock content %}

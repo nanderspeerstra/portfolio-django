@@ -39,13 +39,13 @@ cd portfolio-gallery
 
 ```bash
 python -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
+source venv/bin/activate
 ```
 
 ### 3. Install dependencies
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
 ```
 
 ### 4. Run migrations
@@ -128,5 +128,5 @@ This project is licensed under the MIT License.
 ## Author
 
 Made by Nander
-Portfolio: https://nander.dev
-GitHub: https://github.com/nanderdev
+Portfolio: https://nanderspeerstra.me
+GitHub: https://github.com/nanderspeerstra

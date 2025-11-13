@@ -219,3 +219,4 @@ __marimo__/
 media/
 /static/img/photo/nander-work.jpg
 /static/vendor/bootstrap/**/*.map
+.env.prod

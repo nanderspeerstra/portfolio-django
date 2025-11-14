@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.14](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.13...0.3.14) (2025-11-14)
+
+
+### Bug Fixes
+
+* fix claude 3 ([9c03924](https://github.com/nanderspeerstra/portfolio-django/commit/9c039243423059e25d14a1860acf383237017cb0))
+
 ## [0.3.13](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.12...0.3.13) (2025-11-14)
 
 

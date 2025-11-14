@@ -9,9 +9,8 @@
       "extra-files": [
         {
           "type": "yaml",
-          "path": "kubernetes/deployment.yaml",
-          "jsonpath": "$.spec.template.spec.containers[0].image",
-          "replace": "nspeerstra/portfolio-django:${version}"
+          "path": "kubernetes/kustomization.yaml",
+          "jsonpath": "$.images[0].newTag"
         }
       ]
     }

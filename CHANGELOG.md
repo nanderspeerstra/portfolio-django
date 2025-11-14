@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.7](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.6...0.3.7) (2025-11-14)
+
+
+### Bug Fixes
+
+* **pipelines:** well, still issue not fix I guess ([d09ba57](https://github.com/nanderspeerstra/portfolio-django/commit/d09ba578eaeb939f2ba6b4763e30fdeb87d6c5c2))
+
 ## [0.3.6](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.5...0.3.6) (2025-11-14)
 
 

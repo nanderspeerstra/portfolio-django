@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.18](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.17...0.3.18) (2025-11-14)
+
+
+### Bug Fixes
+
+* configmap, ssl proxy shit, releaseplease stuff ([#34](https://github.com/nanderspeerstra/portfolio-django/issues/34)) ([b742933](https://github.com/nanderspeerstra/portfolio-django/commit/b742933df894d89cec2075b3eddc68061cfd540a))
+
 ## [0.3.17](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.16...0.3.17) (2025-11-14)
 
 

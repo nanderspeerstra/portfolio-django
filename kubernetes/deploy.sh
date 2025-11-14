@@ -1,5 +1,4 @@
 #!/bin/bash
-
 set -e
 
 echo "Applying Kubernetes namespace..."
@@ -14,6 +13,9 @@ kubectl create secret generic portfolio-env \
 echo "Applying PersistentVolumeClaim for media..."
 kubectl apply -f media-pvc.yaml
 
+echo "Applying PersistentVolumeClaim for SQLite database..."
+kubectl apply -f db-pvc.yaml
+
 echo "Deploying application with 'latest' image tag..."
 kubectl apply -f deployment.yaml
 
@@ -22,5 +24,10 @@ kubectl apply -f service.yaml
 
 echo "Applying ingress..."
 kubectl apply -f ingress.yaml
+
+echo "Forcing rollout to pull latest image..."
+kubectl patch deployment portfolio \
+  -n portfolio \
+  -p "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"date\":\"$(date +%s)\"}}}}}"
 
 echo "Deployment complete."

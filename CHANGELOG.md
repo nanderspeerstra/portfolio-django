@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.9](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.8...0.3.9) (2025-11-14)
+
+
+### Bug Fixes
+
+* tags ([63098c6](https://github.com/nanderspeerstra/portfolio-django/commit/63098c6020e97bb7f0bf5bf6bc66d7ac30dd7a41))
+
 ## [0.3.8](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.7...0.3.8) (2025-11-14)
 
 

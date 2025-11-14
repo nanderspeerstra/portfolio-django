@@ -9,7 +9,7 @@
       "extra-files": [
         {
           "type": "yaml",
-          "path": "deployment.yaml",
+          "path": "kubernetes/deployment.yaml",
           "jsonpath": "$.spec.template.spec.containers[0].image"
         }
       ]

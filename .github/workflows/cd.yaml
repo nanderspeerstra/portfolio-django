@@ -33,9 +33,9 @@ jobs:
       - uses: actions/checkout@v3
       - name: Deploy manifests with MicroK8s
         run: |
-          sudo microk8s kubectl apply -f namespace.yaml
-          sudo microk8s kubectl apply -f media-pvc.yaml
-          sudo microk8s kubectl apply -f db-pvc.yaml
-          sudo microk8s kubectl apply -f deployment.yaml
-          sudo microk8s kubectl apply -f service.yaml
-          sudo microk8s kubectl apply -f ingress.yaml
+          microk8s kubectl apply -f kubernetes/namespace.yaml
+          microk8s kubectl apply -f kubernetes/media-pvc.yaml
+          microk8s kubectl apply -f kubernetes/db-pvc.yaml
+          microk8s kubectl apply -f kubernetes/deployment.yaml
+          microk8s kubectl apply -f kubernetes/service.yaml
+          microk8s kubectl apply -f kubernetes/ingress.yaml

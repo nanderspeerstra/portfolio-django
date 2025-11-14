@@ -132,6 +132,7 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATIC_ROOT = os.getenv("STATIC_ROOT", BASE_DIR / "staticfiles")
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # WhiteNoise storage backend (compressed + hashed filenames)
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"

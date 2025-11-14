@@ -4,4 +4,4 @@ resources:
   - configmap.yaml
 images:
   - name: nspeerstra/portfolio-django
-    newTag: 0.3.19
+    newTag: 0.3.20

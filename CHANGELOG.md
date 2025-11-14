@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.20](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.19...0.3.20) (2025-11-14)
+
+
+### Bug Fixes
+
+* automerge, env settings and secret, kustomization ([#38](https://github.com/nanderspeerstra/portfolio-django/issues/38)) ([cd9aeb3](https://github.com/nanderspeerstra/portfolio-django/commit/cd9aeb317f6135fde7cb37b13c12929b3f792aaf))
+
 ## [0.3.19](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.18...0.3.19) (2025-11-14)
 
 

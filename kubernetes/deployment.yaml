@@ -14,20 +14,20 @@ spec:
         app: portfolio
     spec:
       containers:
-      - name: portfolio
-        image: nspeerstra/portfolio-django:0.3.15
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 80
-        volumeMounts:
-        - name: media-storage
-          mountPath: /app/media
-        - name: db-storage
-          mountPath: /app/db
+        - name: portfolio
+          image: 0.3.16
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: media-storage
+              mountPath: /app/media
+            - name: db-storage
+              mountPath: /app/db
       volumes:
-      - name: media-storage
-        persistentVolumeClaim:
-          claimName: media-pvc
-      - name: db-storage
-        persistentVolumeClaim:
-          claimName: db-pvc
+        - name: media-storage
+          persistentVolumeClaim:
+            claimName: media-pvc
+        - name: db-storage
+          persistentVolumeClaim:
+            claimName: db-pvc

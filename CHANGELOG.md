@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.3.11](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.10...0.3.11) (2025-11-14)
+
+
+### Bug Fixes
+
+* fix ([c30e8ee](https://github.com/nanderspeerstra/portfolio-django/commit/c30e8ee906420b0e73867cdbba80892a64da5d8d))
+* no deploy incd ([2fa9a5a](https://github.com/nanderspeerstra/portfolio-django/commit/2fa9a5a03f6f9742b5ad2ca07cedfb22170821c0))
+* no retag step ([6e16a60](https://github.com/nanderspeerstra/portfolio-django/commit/6e16a60135095c76892d78f57abdff1871e7d6f9))
+
 ## [0.3.10](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.9...0.3.10) (2025-11-14)
 
 

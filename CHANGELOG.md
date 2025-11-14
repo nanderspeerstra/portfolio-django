@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.19](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.18...0.3.19) (2025-11-14)
+
+
+### Bug Fixes
+
+* kustomization, apply -k kubernetes/ ([#36](https://github.com/nanderspeerstra/portfolio-django/issues/36)) ([b031433](https://github.com/nanderspeerstra/portfolio-django/commit/b031433e17283fd79c77463b003083aab1d999b7))
+
 ## [0.3.18](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.17...0.3.18) (2025-11-14)
 
 

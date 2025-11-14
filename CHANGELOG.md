@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.21](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.20...0.3.21) (2025-11-14)
+
+
+### Bug Fixes
+
+* adds whitenoise to reqs.txt ([#40](https://github.com/nanderspeerstra/portfolio-django/issues/40)) ([f0a5799](https://github.com/nanderspeerstra/portfolio-django/commit/f0a5799d9d1b33c61fad35e456877b458f58e28f))
+
 ## [0.3.20](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.19...0.3.20) (2025-11-14)
 
 

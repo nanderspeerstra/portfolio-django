@@ -1,0 +1,8 @@
+resources:
+  - deployment.yaml
+  - service.yaml
+  - configmap.yaml
+
+images:
+  - name: nspeerstra/portfolio-django
+    newTag: 0.3.17

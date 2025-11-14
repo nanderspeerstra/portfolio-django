@@ -52,8 +52,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/portfolio-django:pr-${{ github.event.number }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/portfolio-django:${{ github.sha }}
+            nspeerstra/portfolio-django:pr-${{ github.event.number }}
+            nspeerstra/portfolio-django:${{ github.sha }}
 
   # --- Stage 4: Retag CI Image with Release Tag (Release only) ---
   docker-retag:
@@ -70,14 +70,14 @@ jobs:
           RAW_TAG="${{ github.event.release.tag_name }}"
           CLEAN_TAG=${RAW_TAG#v}
           # Pull the image built in CI (by commit SHA)
-          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/portfolio-django:${{ github.sha }}
+          docker pull nspeerstra/portfolio-django:${{ github.sha }}
           # Retag it with semver release + latest
-          docker tag ${{ secrets.DOCKERHUB_USERNAME }}/portfolio-django:${{ github.sha }} \
-                     ${{ secrets.DOCKERHUB_USERNAME }}/portfolio-django:${CLEAN_TAG}
-          docker tag ${{ secrets.DOCKERHUB_USERNAME }}/portfolio-django:${{ github.sha }} \
-                     ${{ secrets.DOCKERHUB_USERNAME }}/portfolio-django:latest
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/portfolio-django:${CLEAN_TAG}
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/portfolio-django:latest
+          docker tag nspeerstra/portfolio-django:${{ github.sha }} \
+                     nspeerstra/portfolio-django:${CLEAN_TAG}
+          docker tag nspeerstra/portfolio-django:${{ github.sha }} \
+                     nspeerstra/portfolio-django:latest
+          docker push nspeerstra/portfolio-django:${CLEAN_TAG}
+          docker push nspeerstra/portfolio-django:latest
 
   # --- Stage 5: Deploy to MicroK8s (Release only, self-hosted runner) ---
   deploy:

@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: portfolio
-        image: nspeerstra/portfolio-django:1.6.1
+        image: nspeerstra/portfolio-django:0.1.0
         imagePullPolicy: Always
         ports:
         - containerPort: 80

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.4](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.3...0.3.4) (2025-11-14)
+
+
+### Bug Fixes
+
+* **pipeline:** trigger of docker-retag ([fdd571b](https://github.com/nanderspeerstra/portfolio-django/commit/fdd571bc2475cb09f8caf63d4cb7405a4857357d))
+
 ## [0.3.3](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.2...0.3.3) (2025-11-14)
 
 

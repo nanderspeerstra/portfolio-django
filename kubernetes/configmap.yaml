@@ -4,7 +4,7 @@ metadata:
   name: portfolio-config
   namespace: portfolio
 data:
-  DEBUG: "False"
+  DEBUG: "True"
   ALLOWED_HOSTS: "nanderspeerstra.me,localhost,127.0.0.1"
   DB_ENGINE: "django.db.backends.sqlite3"
   DB_PATH: "/app/db/db.sqlite3"

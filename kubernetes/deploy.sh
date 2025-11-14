@@ -10,6 +10,9 @@ kubectl create secret generic portfolio-env \
   --from-env-file=.env.prod \
   --namespace=portfolio
 
+echo "Creating secret for Django"
+kubectl apply -f secret.yaml
+
 echo "Applying PersistentVolumeClaim for media..."
 kubectl apply -f media-pvc.yaml
 

@@ -1,12 +1,15 @@
 name: automerge
 
 on:
-  pull_request:
+  pull_request_target:
     branches:
       - main
     types:
       - labeled
       - unlabeled
+      - opened
+      - synchronize
+      - reopened
 
 jobs:
   automerge:

@@ -9,6 +9,9 @@ jobs:
   release:
     name: Create Release PR
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     if: "!startsWith(github.ref, 'refs/tags/')"
     steps:
       - name: Checkout repository
@@ -17,4 +20,6 @@ jobs:
       - name: Run Release Please
         uses: googleapis/release-please-action@v4
         with:
-          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json

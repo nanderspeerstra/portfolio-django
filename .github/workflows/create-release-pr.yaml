@@ -1,4 +1,4 @@
-name: CD - Create Release PR
+name: Create Release PR
 
 on:
   push:

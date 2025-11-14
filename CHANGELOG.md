@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.17](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.16...0.3.17) (2025-11-14)
+
+
+### Bug Fixes
+
+* dotenv package, deployment insert from release please version ([#32](https://github.com/nanderspeerstra/portfolio-django/issues/32)) ([0c01be5](https://github.com/nanderspeerstra/portfolio-django/commit/0c01be58541d6d817179bae5b17f45b99cf771c3))
+
 ## [0.3.16](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.15...0.3.16) (2025-11-14)
 
 

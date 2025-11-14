@@ -1,4 +1,4 @@
-# Portfolio & Gallery Website (Django)
+# Portfolio & Gallery Website in Django
 
 A personal portfolio and image gallery built with Django. This site showcases your work, photography, and personal projects with a clean, responsive design and admin-managed media uploads.
 

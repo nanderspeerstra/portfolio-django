@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: portfolio-config
+  namespace: portfolio
+data:
+  ALLOWED_HOSTS: "nanderspeerstra.me,localhost,127.0.0.1,portfolio-service"
+  DB_PATH: "/app/db/db.sqlite3"
+  DEBUG: "False"
+  MEDIA_ROOT: "/app/media"
+  SECURE_SSL_REDIRECT: "True"

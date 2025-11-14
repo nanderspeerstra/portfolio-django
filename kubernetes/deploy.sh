@@ -16,7 +16,10 @@ kubectl apply -f media-pvc.yaml
 echo "Applying PersistentVolumeClaim for SQLite database..."
 kubectl apply -f db-pvc.yaml
 
-echo "Deploying application with 'latest' image tag..."
+echo "Applying config map..."
+kubectl apply -f configmap.yaml
+
+echo "Deploying application..."
 kubectl apply -f deployment.yaml
 
 echo "Applying service..."

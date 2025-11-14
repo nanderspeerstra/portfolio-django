@@ -15,10 +15,13 @@ spec:
     spec:
       containers:
         - name: portfolio
-          image: 0.3.17
+          image: nspeerstra/portfolio-django:0.3.17
           imagePullPolicy: Always
           ports:
-            - containerPort: 80
+            - containerPort: 8000
+          envFrom:
+            - configMapRef:
+                name: portfolio-config
           volumeMounts:
             - name: media-storage
               mountPath: /app/media

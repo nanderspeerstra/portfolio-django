@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.5](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.4...0.3.5) (2025-11-14)
+
+
+### Bug Fixes
+
+* **pipelines:** fix for automerge and retag workflow ([9bdd856](https://github.com/nanderspeerstra/portfolio-django/commit/9bdd8560bfb17ac2c4195790e69f6303c750cc07))
+
 ## [0.3.4](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.3...0.3.4) (2025-11-14)
 
 

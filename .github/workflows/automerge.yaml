@@ -13,6 +13,7 @@ on:
 
 jobs:
   automerge:
+    if: startsWith(github.head_ref, 'release-please--')
     runs-on: ubuntu-latest
     permissions:
       contents: write

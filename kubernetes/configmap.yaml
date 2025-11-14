@@ -4,8 +4,17 @@ metadata:
   name: portfolio-config
   namespace: portfolio
 data:
-  ALLOWED_HOSTS: "nanderspeerstra.me,localhost,127.0.0.1,portfolio-service"
-  DB_PATH: "/app/db/db.sqlite3"
   DEBUG: "False"
-  MEDIA_ROOT: "/app/media"
+  ALLOWED_HOSTS: "nanderspeerstra.me,localhost,127.0.0.1"
+  DB_ENGINE: "django.db.backends.sqlite3"
+  DB_PATH: "/app/db/db.sqlite3"
   SECURE_SSL_REDIRECT: "True"
+  SECURE_HSTS_SECONDS: "31536000"
+  SECURE_HSTS_INCLUDE_SUBDOMAINS: "True"
+  SECURE_HSTS_PRELOAD: "True"
+  SESSION_COOKIE_SECURE: "True"
+  CSRF_COOKIE_SECURE: "True"
+  LANGUAGE_CODE: "en-us"
+  TIME_ZONE: "UTC"
+  STATIC_ROOT: "/app/staticfiles"
+  MEDIA_ROOT: "/app/media"

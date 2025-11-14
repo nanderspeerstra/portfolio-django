@@ -13,4 +13,4 @@ spec:
               service:
                 name: portfolio-service
                 port:
-                  number: 31313
+                  number: 80

@@ -1,0 +1,43 @@
+name: CD Pipeline
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  docker-retag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Retag & Push
+        run: |
+          RAW_TAG="${GITHUB_REF#refs/tags/}"
+          CLEAN_TAG=${RAW_TAG#v}
+          COMMIT_SHA=$(git rev-list -n 1 $RAW_TAG)
+          echo "Retagging commit ${COMMIT_SHA} from tag ${RAW_TAG} to clean tag ${CLEAN_TAG}"
+
+          docker pull nspeerstra/portfolio-django:${COMMIT_SHA}
+          docker tag nspeerstra/portfolio-django:${COMMIT_SHA} nspeerstra/portfolio-django:${CLEAN_TAG}
+          docker tag nspeerstra/portfolio-django:${COMMIT_SHA} nspeerstra/portfolio-django:latest
+          docker push nspeerstra/portfolio-django:${CLEAN_TAG}
+          docker push nspeerstra/portfolio-django:latest
+
+  deploy:
+    runs-on: self-hosted
+    needs: docker-retag
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          sudo microk8s kubectl apply -f namespace.yaml
+          sudo microk8s kubectl apply -f media-pvc.yaml
+          sudo microk8s kubectl apply -f db-pvc.yaml
+          sudo microk8s kubectl apply -f deployment.yaml
+          sudo microk8s kubectl apply -f service.yaml
+          sudo microk8s kubectl apply -f ingress.yaml

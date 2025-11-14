@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.6](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.5...0.3.6) (2025-11-14)
+
+
+### Bug Fixes
+
+* **pipelines:** automerge issue and other stuff ([35e6f7c](https://github.com/nanderspeerstra/portfolio-django/commit/35e6f7cffae3e5bcd53cd89781a4e635ecf53167))
+
 ## [0.3.5](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.4...0.3.5) (2025-11-14)
 
 

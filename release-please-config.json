@@ -1,0 +1,19 @@
+{
+  "release-type": "simple",
+  "packages": {
+    ".": {
+      "component": "portfolio",
+      "extra-label": "automerge",
+      "include-component-in-tag": false,
+      "include-v-in-tag": false,
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "deployment.yaml",
+          "jsonpath": "$.spec.template.spec.containers[0].image"
+        }
+      ]
+    }
+  },
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
+}

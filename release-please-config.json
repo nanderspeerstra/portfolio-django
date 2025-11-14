@@ -10,7 +10,9 @@
         {
           "type": "yaml",
           "path": "kubernetes/deployment.yaml",
-          "jsonpath": "$.spec.template.spec.containers[0].image"
+          "jsonpath": "$.spec.template.spec.containers[0].image",
+          "regex": "nspeerstra/portfolio-django:(.*)",
+          "replace": "nspeerstra/portfolio-django:${version}"
         }
       ]
     }

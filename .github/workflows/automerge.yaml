@@ -1,8 +1,9 @@
 name: automerge
 
 on:
-  pull_request
-
+  pull_request:
+    types:
+      - labeled
 
 jobs:
   automerge:
@@ -12,6 +13,7 @@ jobs:
       pull-requests: write
     steps:
       - name: automerge
+        if: ${{ github.event.label.name == 'automerge' }}
         uses: pascalgn/automerge-action@v0.16.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

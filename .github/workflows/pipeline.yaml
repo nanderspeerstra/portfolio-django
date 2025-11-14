@@ -2,9 +2,9 @@ name: Portfolio Website Pipeline
 
 on:
   pull_request:
-  push:
-    tags:
-      - 'v*'
+  release:
+    types:
+      - published
 
 jobs:
   # --- Stage 1: Precommit (PR only) ---

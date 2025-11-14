@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.0](https://github.com/nanderspeerstra/portfolio-django/compare/0.2.0...0.3.0) (2025-11-14)
+
+
+### Features
+
+* **pipeline:** new pipeline.yaml for better maintainability and selfhosted runner ([80dfb5c](https://github.com/nanderspeerstra/portfolio-django/commit/80dfb5cfff8fcb644047b72e932fac54336bcd84))
+* **pipeline:** new pipeline.yaml for better maintainability and selfhosted runner ([ecfd5d2](https://github.com/nanderspeerstra/portfolio-django/commit/ecfd5d286a42cb7ab57ef5dfa47638bb49e07282))
+
 ## [0.2.0](https://github.com/nanderspeerstra/portfolio-django/compare/0.1.0...0.2.0) (2025-11-14)
 
 

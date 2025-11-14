@@ -28,16 +28,3 @@ jobs:
           docker tag nspeerstra/portfolio-django:${COMMIT_SHA} nspeerstra/portfolio-django:latest
           docker push nspeerstra/portfolio-django:${CLEAN_TAG}
           docker push nspeerstra/portfolio-django:latest
-
-  deploy:
-    runs-on: self-hosted
-    needs: docker-retag
-    steps:
-      - uses: actions/checkout@v3
-      - run: |
-          sudo microk8s kubectl apply -f namespace.yaml
-          sudo microk8s kubectl apply -f media-pvc.yaml
-          sudo microk8s kubectl apply -f db-pvc.yaml
-          sudo microk8s kubectl apply -f deployment.yaml
-          sudo microk8s kubectl apply -f service.yaml
-          sudo microk8s kubectl apply -f ingress.yaml

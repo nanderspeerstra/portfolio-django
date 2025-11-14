@@ -1,0 +1,98 @@
+name: Portfolio Website Pipeline
+
+on:
+  pull_request:
+  release:
+    types:
+      - published
+
+jobs:
+  # --- Stage 1: Precommit (PR only) ---
+  precommit:
+    name: Precommit Checks
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pre-commit/action@v3.0.0
+
+  # --- Stage 2: Django Tests (PR only) ---
+  django-test:
+    name: Run Django Tests
+    runs-on: ubuntu-latest
+    needs: precommit
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - run: python manage.py migrate --noinput
+      - run: python manage.py test
+
+  # --- Stage 3: Docker Build (PR only, push with PR/commit tags) ---
+  docker-build-ci:
+    name: Build & Push CI Image
+    runs-on: ubuntu-latest
+    needs: django-test
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v3
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build & Push image with PR + commit tags
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/portfolio-django:pr-${{ github.event.number }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/portfolio-django:${{ github.sha }}
+
+  # --- Stage 4: Retag CI Image with Release Tag (Release only) ---
+  docker-retag:
+    name: Retag CI Image with Release Tag
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release'
+    steps:
+      - uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Retag & Push
+        run: |
+          RAW_TAG="${{ github.event.release.tag_name }}"
+          CLEAN_TAG=${RAW_TAG#v}
+          # Pull the image built in CI (by commit SHA)
+          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/portfolio-django:${{ github.sha }}
+          # Retag it with semver release + latest
+          docker tag ${{ secrets.DOCKERHUB_USERNAME }}/portfolio-django:${{ github.sha }} \
+                     ${{ secrets.DOCKERHUB_USERNAME }}/portfolio-django:${CLEAN_TAG}
+          docker tag ${{ secrets.DOCKERHUB_USERNAME }}/portfolio-django:${{ github.sha }} \
+                     ${{ secrets.DOCKERHUB_USERNAME }}/portfolio-django:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/portfolio-django:${CLEAN_TAG}
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/portfolio-django:latest
+
+  # --- Stage 5: Deploy to MicroK8s (Release only, self-hosted runner) ---
+  deploy:
+    name: Deploy to MicroK8s
+    runs-on: self-hosted   # 👈 runs on your private server
+    needs: docker-retag
+    if: github.event_name == 'release'
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Deploy manifests with MicroK8s
+        run: |
+          sudo microk8s kubectl apply -f namespace.yaml
+          sudo microk8s kubectl apply -f media-pvc.yaml
+          sudo microk8s kubectl apply -f db-pvc.yaml
+          sudo microk8s kubectl apply -f deployment.yaml
+          sudo microk8s kubectl apply -f service.yaml
+          sudo microk8s kubectl apply -f ingress.yaml

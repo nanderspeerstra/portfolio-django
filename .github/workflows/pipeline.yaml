@@ -1,4 +1,4 @@
-name: Portfolio Website Pipeline
+name: Portfolio Pipeline
 
 on:
   pull_request:
@@ -64,11 +64,10 @@ jobs:
         run: |
           RAW_TAG="${GITHUB_REF#refs/tags/}"
           CLEAN_TAG=${RAW_TAG#v}
-          # Pull the image built in CI (by commit SHA from the release tag)
-          docker pull nspeerstra/portfolio-django:${{ github.sha }}
-          # Retag with semver release + latest
-          docker tag nspeerstra/portfolio-django:${{ github.sha }} nspeerstra/portfolio-django:${CLEAN_TAG}
-          docker tag nspeerstra/portfolio-django:${{ github.sha }} nspeerstra/portfolio-django:latest
+          COMMIT_SHA=$(git rev-list -n 1 $RAW_TAG)
+          docker pull nspeerstra/portfolio-django:${COMMIT_SHA}
+          docker tag nspeerstra/portfolio-django:${COMMIT_SHA} nspeerstra/portfolio-django:${CLEAN_TAG}
+          docker tag nspeerstra/portfolio-django:${COMMIT_SHA} nspeerstra/portfolio-django:latest
           docker push nspeerstra/portfolio-django:${CLEAN_TAG}
           docker push nspeerstra/portfolio-django:latest
 

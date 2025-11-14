@@ -38,5 +38,4 @@ jobs:
           context: .
           push: true
           tags: |
-            nspeerstra/portfolio-django:pr-${{ github.event.number }}
-            nspeerstra/portfolio-django:${{ github.sha }}
+            nspeerstra/portfolio-django:latest

@@ -19,15 +19,11 @@ jobs:
       - name: Retag & Push
         run: |
           RAW_TAG="${GITHUB_REF#refs/tags/}"
-          CLEAN_TAG=${RAW_TAG#v}
-          COMMIT_SHA=$(git rev-list -n 1 $RAW_TAG)
-          echo "Tag to deploy: $CLEAN_TAG at commit $COMMIT_SHA"
+          echo "Tagging version: $RAW_TAG"
 
-          docker pull nspeerstra/portfolio-django:${COMMIT_SHA}
-          docker tag nspeerstra/portfolio-django:${COMMIT_SHA} nspeerstra/portfolio-django:${CLEAN_TAG}
-          docker tag nspeerstra/portfolio-django:${COMMIT_SHA} nspeerstra/portfolio-django:latest
-          docker push nspeerstra/portfolio-django:${CLEAN_TAG}
-          docker push nspeerstra/portfolio-django:latest
+          docker pull nspeerstra/portfolio-django:latest
+          docker tag nspeerstra/portfolio-django:latest nspeerstra/portfolio-django:${RAW_TAG}
+          docker push nspeerstra/portfolio-django:${RAW_TAG}
 
   # --- Stage 5: Deploy to MicroK8s (Tag push only) ---
   deploy:

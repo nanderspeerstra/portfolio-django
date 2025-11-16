@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.22...0.4.0) (2025-11-16)
+
+
+### Features
+
+* adds hobbies page, fixes version in footer, adds unit test setup ([#44](https://github.com/nanderspeerstra/portfolio-django/issues/44)) ([62e36ad](https://github.com/nanderspeerstra/portfolio-django/commit/62e36ad3fa2745e205bc220fe6e678731bcb2bb5))
+
 ## [0.3.22](https://github.com/nanderspeerstra/portfolio-django/compare/0.3.21...0.3.22) (2025-11-14)
 
 

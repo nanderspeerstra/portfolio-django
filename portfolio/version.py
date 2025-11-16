@@ -1,10 +1,14 @@
-# portfolio/version.py
+import json
 from pathlib import Path
 
 
 def get_version():
-    version_file = Path(__file__).resolve().parent.parent / "version.txt"
+    manifest_file = (
+        Path(__file__).resolve().parent.parent
+        / ".release-please-manifest.json"
+    )
     try:
-        return version_file.read_text(encoding="utf-8").strip()
+        data = json.loads(manifest_file.read_text(encoding="utf-8"))
+        return data.get(".", "dev")
     except FileNotFoundError:
         return "dev"

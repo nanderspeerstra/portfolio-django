@@ -1,0 +1,127 @@
+{% extends "gallery/base.html" %}
+{% load static %}
+
+{% block title %}Hobbies — Nander Speerstra{% endblock title %}
+
+{% block content %}
+<section class="section py-5">
+  <div class="container" data-aos="fade-up">
+    <h2 class="mb-4 text-center">My Hobbies</h2>
+    <p class="lead text-center mb-5">From vintage mechanics to modern DevOps — here’s what I enjoy building and maintaining.</p>
+
+    <hr class="my-5">
+
+    <h3 class="mb-4 text-center">Our Love for Red</h3>
+    <!-- Classic Machines -->
+    <div class="row g-5 align-items-center mb-5">
+      <div class="col-md-6">
+        <h3>1977 Classic Mini 1100 Special</h3>
+        <p>
+        Our love for the UK goes beyond whisky and rolling hills — it extends to Sir Alec Issigonis’
+        ingenious design of the Mini. What started as a clever solution to post‑war fuel shortages
+        became one of the most iconic small cars ever built. We’re fortunate to own a
+        1977 Classic Mini 1100 Special, a special Belgium edition.
+        </p>
+
+        <p>
+        When we first got the car, it had been neglected for years. Maintenance was patchy, it was colored
+        fifty shades of black/purple (even some parts with glitter), and the electrics were unreliable.
+        Since then, we’ve been steadily bringing it back to
+        life: repainting panels, fixing rust within our possibilities, fixing wiring gremlins,
+        replacing windows, and tackling countless
+        small jobs. Some repairs we handle ourselves — like the above and normal maintenance —
+        while bigger projects are entrusted to a local garage. It’s a balance of DIY
+        passion and professional support, each step making the car a little better than before.
+        </p>
+
+        <p>
+        The Mini has a personality that makes it impossible not
+        to smile, every time we open the garage door. Driving it is pure joy: the direct steering,
+        the mechanical feedback,
+        the sense of connection to the road.
+        </p>
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="{% static 'img/photo/mini.jpg' %}" alt="1977 Classic Mini 1100 Special"
+             class="img-fluid rounded shadow" width="400" height="300">
+        <figcaption class="mt-2 text-muted">Our 1977 Mini 1100 Special.</figcaption>
+      </div>
+    </div>
+
+    <div class="row g-5 align-items-center mb-5">
+      <div class="col-md-6 order-md-2">
+        <h3>2004 Ducati ST3</h3>
+        <p>
+        The Ducati ST3 is a sport‑tourer that blends Italian character with practical long‑distance
+        ability. It has the unmistakable exotic quirks that Ducati is known for: a desmodromic
+        engine, revving up to 11,000 RPM, sharp handling, a very satisfying exhaute note...
+        And it doesn't like low revs, or speeds below 30 km/h. That's 'character' for you.
+        </p>
+
+        <p>
+        Much of the maintenance I handle myself: valve clearance checks, timing belts, fluid changes,
+        brake pads, and chain care. These jobs demand patience and a steep learning curve,
+        but they make the bike
+        feel more personal and rewarding. For safety checks and maintenance beyond my skills,
+        I rely on a trusted garage.
+        </p>
+
+        <p>
+        Every ride reminds me why I keep investing time in it. The sound of the engine, the way it
+        pulls through corners, and the confidence it inspires on longer trips all make the effort
+        worthwhile. It's only been in my pessession since the end of 2024, so I'm looking forward to
+        many more miles of adventures ahead.
+        </p>
+
+      </div>
+      <div class="col-md-6 order-md-1 text-center">
+        <img src="{% static 'img/photo/ducati.jpg' %}" alt="Ducati ST3"
+             class="img-fluid rounded shadow" width="400" height="300">
+        <figcaption class="mt-2 text-muted">My Ducati ST3 sport‑tourer.</figcaption>
+      </div>
+    </div>
+
+    <hr class="my-5">
+
+    <h3 class="mb-4 text-center">This portfolio website: nanderspeerstra.me</h3>
+
+    <div class="col-lg-10 mx-auto text-center">
+        <p class="lead mb-4">
+            Automated pipeline from commit to live site — my garage for code, just with fewer oil stains.
+        </p>
+
+        <div class="d-flex flex-wrap justify-content-center align-items-center gap-3 fs-5">
+            <a href="https://github.com/nanderspeerstra/portfolio-django" target="_blank" class="text-decoration-none">
+            🚀 GitHub
+            </a>
+            <i class="bi bi-arrow-right"></i>
+            <a href="https://github.com/googleapis/release-please" target="_blank" class="text-decoration-none">
+            🤖 Release Please
+            </a>
+            <i class="bi bi-arrow-right"></i>
+            <a href="https://github.com/marketplace/actions/automerge" target="_blank" class="text-decoration-none">
+            🔄 Automerge
+            </a>
+            <i class="bi bi-arrow-right"></i>
+            <a href="https://docs.github.com/en/actions" target="_blank" class="text-decoration-none">
+            🛠 GitHub Actions
+            </a>
+            <i class="bi bi-arrow-right"></i>
+            <a href="https://hub.docker.com/" target="_blank" class="text-decoration-none">
+            🐳 DockerHub
+            </a>
+            <i class="bi bi-arrow-right"></i>
+            <a href="https://microk8s.io/docs" target="_blank" class="text-decoration-none">
+            🖥 microk8s
+            </a>
+            <i class="bi bi-arrow-right"></i>
+            <a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/" target="_blank" class="text-decoration-none">
+            🌐 Cloudflare Tunnel
+            </a>
+            <i class="bi bi-arrow-right"></i>
+            <span>✨ nanderspeerstra.me</span>
+        </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

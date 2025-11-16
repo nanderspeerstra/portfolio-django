@@ -27,6 +27,7 @@ urlpatterns = [
     path("professional/", views.professional, name="professional"),
     path("admin/", admin.site.urls),
     path("gallery", views.gallery_home, name="gallery_home"),
+    path("hobbies", views.hobbies, name="hobbies"),
     path(
         "category/<int:category_id>/",
         views.gallery_category,

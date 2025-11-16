@@ -17,6 +17,10 @@ def gallery_category(request, category_id):
     )
 
 
+def hobbies(request):
+    return render(request, "gallery/hobbies.html")
+
+
 def homepage(request):
     return render(request, "gallery/homepage.html")
 

@@ -217,7 +217,6 @@ __marimo__/
 
 # Personal
 media/
-/static/img/photo/nander-work.jpg
 /static/vendor/bootstrap/**/*.map
 .env.prod
 kubernetes/secret.yaml

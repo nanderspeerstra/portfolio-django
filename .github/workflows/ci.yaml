@@ -56,7 +56,13 @@ jobs:
         run: |
           docker build -t portfolio-test:latest .
       - name: Run integration tests inside container
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
         run: |
-          docker run --rm portfolio-test:latest \
+          docker run --rm \
+            --env-file .github/workflows/docker-test.env \
+            -e SECRET_KEY="${SECRET_KEY}" \
+            portfolio-test:latest \
             sh -c "pip install pytest pytest-django pytest-cov && \
+                   python manage.py collectstatic --noinput && \
                    python -m pytest tests/integration/test_page_integration.py -v"

@@ -22,6 +22,8 @@ jobs:
           pip install -r requirements-dev.txt
           python manage.py migrate --noinput
           pytest tests/ -v --cov=gallery --cov=portfolio --cov-report=xml
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
       - uses: codecov/codecov-action@v3
         with:
           files: ./coverage.xml
